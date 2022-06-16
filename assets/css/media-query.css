@@ -1,0 +1,34 @@
+/* header */
+@media screen and (min-width: 320px) and (max-width: 475px) {
+    html{
+        width: fit-content;
+    }
+}
+@media screen and (min-width: 320px) and (max-width: 995px) {
+    .navbar .nav-right a img {
+        height: 20px !important;
+        margin-left: 10px !important;
+    }
+
+    .navbar .nav-left {
+        display: flex;
+        font-size: 10px !important;
+    }
+
+    .navbar .nav-left a {
+        font-size: 10px !important;
+    }
+
+    .navbar {
+        height: auto !important;
+    }
+}
+/* header */
+
+/* container */
+@media only screen and (min-width: 360px) and (max-width: 995px) {
+    .container {
+        width: 483px !important;
+    }
+}
+/* container */

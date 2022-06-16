@@ -1,0 +1,38 @@
+/* global */
+html {
+    width: auto;
+}
+
+.container {
+    width: 1140px;
+}
+
+.bg-danger {
+    background-color: #FF007D !important;
+}
+/* global */
+
+.vendor-content{
+    padding: 60px;
+    width: 806px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 50px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+}
+
+.vendor-content h3{
+    font-family: 'Crucial' !important;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 32px;
+    color: #000000;
+}
+.vendor-content h1{
+    font-family: 'Crucial' !important;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 46px;
+    line-height: 55px;
+    color: #000000;
+}
