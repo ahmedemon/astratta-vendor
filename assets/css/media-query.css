@@ -36,7 +36,12 @@
         padding-bottom: 20px !important;
     }
     .vendor-section .vendor-content{
+        padding: 20px;
         width: 100% !important;
+    }
+    .add-product{
+        padding-top: 20px !important;
+        padding-bottom: 20px !important;
     }
 }
 /* header */
