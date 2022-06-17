@@ -46,6 +46,9 @@
     padding-bottom: 6px;
     color: #4A213A;
 }
+.side-nav .active {
+    background-color: #F2F2F2 !important;
+}
 .side-nav .menu-group .btn:hover{
     background-color: #F2F2F2;
 }

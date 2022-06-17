@@ -87,7 +87,7 @@
         <div class="breadcrumb">
             <div class="container d-flex align-items-center px-lg-0 px-xl-0 px-xxl-0">
                 <div class="bct">
-                    <h1 class="my-0">Dashboard</h1>
+                    <h1 class="my-0">Profile</h1>
                 </div>
             </div>
             <svg width="475" height="288" viewBox="0 0 475 288" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -124,8 +124,8 @@
                         </div>
                         <div class="menu-group">
                             <ul class="list-group">
-                                <li class="list-group-item p-0 border-0 mb10"><a href="index.blade.html" class="btn btn-light pl35 w-100 rounded-0 border-0 active">Dashboard</a></li>
-                                <li class="list-group-item p-0 border-0 mb10"><a href="edit-profile.blade.html" class="btn btn-light pl35 w-100 rounded-0 border-0">Profile</a></li>
+                                <li class="list-group-item p-0 border-0 mb10"><a href="index.blade.html" class="btn btn-light pl35 w-100 rounded-0 border-0">Dashboard</a></li>
+                                <li class="list-group-item p-0 border-0 mb10"><a href="edit-profile.blade.html" class="btn btn-light pl35 w-100 rounded-0 border-0 active">Profile</a></li>
                                 <li class="list-group-item p-0 border-0 mb10"><a href="products.blade.html" class="btn btn-light pl35 w-100 rounded-0 border-0">Products</a></li>
                                 <li class="list-group-item p-0 border-0 mb10"><a href="javascript:void();" class="btn btn-light pl35 w-100 rounded-0 border-0">Orders</a></li>
                                 <li class="list-group-item p-0 border-0 mb10"><a href="javascript:void();" class="btn btn-light pl35 w-100 rounded-0 border-0">Withdraw</a></li>
@@ -135,32 +135,22 @@
                         </div>
                     </div>
                     <div class="col-md-8 col-lg-8 col-xl-8 col-xxl-8 col-12 vendor-content">
-                        <div class="row mx-auto">
-                            <div class="col-md-6 col-lg-6 col-xl-6 col-xxl-6 col-6 mb60">
-                                <h3 class="my-0 mb15-i">Orders</h3>
-                                <h1 class="my-0">5</h1>
+                        <h3 class="my-0 mb20-i">Change Profile Picture</h3>
+                        <form action="" method="POST">
+                            <div class="d-grid mb30">
+                                <input type="file" />
+                                <label for="image" class="small">Maximum file size 128 MB</label>
                             </div>
-                            <div class="col-md-6 col-lg-6 col-xl-6 col-xxl-6 col-6 mb60">
-                                <h3 class="my-0 mb15-i">Finished Order</h3>
-                                <h1 class="my-0">36</h1>
+                            <div class="mb30">
+                                <label for="name"><h3 class="my-0 mb15-i">Name</h3></label>
+                                <input type="text" name="name" class="form-control rounded-0" placeholder="Etel Fresko" />
                             </div>
-                            <div class="col-md-6 col-lg-6 col-xl-6 col-xxl-6 col-6 mb60">
-                                <h3 class="my-0 mb15-i">Sales This Month</h3>
-                                <h1 class="my-0">$5,800</h1>
+                            <div class="mb30">
+                                <label for="description"><h3 class="my-0 mb15-i">Description</h3></label>
+                                <textarea type="text" name="name" class="form-control rounded-0" placeholder="Etel Fresko"></textarea>
                             </div>
-                            <div class="col-md-6 col-lg-6 col-xl-6 col-xxl-6 col-6 mb60">
-                                <h3 class="my-0 mb15-i">Earning This Month</h3>
-                                <h1 class="my-0">$3,800</h1>
-                            </div>
-                            <div class="col-md-12 col-lg-12 col-xl-12 col-xxl-12 col-12 mb30">
-                                <h3 class="my-0">Sales</h3>
-                            </div>
-                            <div class="col-md-12 col-lg-12 col-xl-12 col-xxl-12 col-12">
-                                <div class="chart-area bg-light">
-                                    <canvas id="myAreaChart"></canvas>
-                                </div>
-                            </div>
-                        </div>
+                            <button type="submit" class="btn rounded-0 sign-in-button">Save Changes</button>
+                        </form>
                     </div>
                 </div>
             </div>
