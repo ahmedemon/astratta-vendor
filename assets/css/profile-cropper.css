@@ -13,6 +13,7 @@ h1 small {
 
 .avatar-upload {
     position: relative;
+    max-width: 205px;
 }
 
 .avatar-upload .avatar-edit {
@@ -26,31 +27,38 @@ h1 small {
     display: none;
 }
 
-.imageUpload{
-    position: absolute;
-    height: 100%;
-    width: 100%;
+.avatar-upload .avatar-edit input+label {
+    display: inline-block;
+    width: 34px;
+    height: 34px;
+    margin-bottom: 0;
+    border-radius: 100%;
+    background: #FFFFFF;
+    border: 1px solid transparent;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
     cursor: pointer;
-    border-radius: 18px;
-    transition-duration: 0.3s;
+    font-weight: normal;
+    transition: all 0.2s ease-in-out;
 }
-.imageUpload:hover{
-    transition-duration: 0.3s;
-    background-color: #00000050;
+
+.avatar-upload .avatar-edit input+label:hover {
+    background: #f1f1f1;
+    border-color: #d6d6d6;
 }
 
 .avatar-upload .avatar-preview {
     width: 192px;
     height: 192px;
     position: relative;
-    border-radius: 18px;
-    box-shadow: 0px 2px 4px 0px rgb(0 0 0 / 50%);
+    border-radius: 100%;
+    border: 6px solid #e2e0e0;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
 }
 
 .avatar-upload .avatar-preview>div {
     width: 100%;
     height: 100%;
-    border-radius: 18px;
+    border-radius: 100%;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;

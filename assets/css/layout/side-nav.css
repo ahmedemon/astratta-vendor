@@ -1,10 +1,10 @@
 @font-face {
     font-family: 'Crucial';
-    src: url('../fonts/Crucial-Medium.otf');
+    src: url('../../fonts/Crucial-Medium.otf');
     src:
         local('Crucial'),
         local('Crucial'),
-        url('../fonts/Crucial-Medium.otf') format('opentype');
+        url('../../fonts/Crucial-Medium.otf') format('opentype');
 }
 .side-nav{
     width: 270px;
@@ -55,4 +55,30 @@
 .side-nav .menu-group .btn:focus{
     background-color: #F2F2F2;
     box-shadow: none !important;
+}
+
+.sideMenuButton {
+    width: auto;
+    position: fixed;
+    left: 0;
+    top: 50%;
+    z-index: 1025;
+    color: white;
+    background-color: #21252980;
+}
+
+#closeButton {
+    position: absolute;
+    right: 30px;
+}
+
+.toggle-menubar {
+    transition-duration: 1s;
+    float: left;
+    height: 100%;
+    width: 100% !important;
+    top: 0 !important;
+    right: 0 !important;
+    left: 0 !important;
+    z-index: 1030 !important;
 }

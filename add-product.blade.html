@@ -15,18 +15,20 @@
         <!-- cdn links -->
 
         <!-- local link -->
-        <link rel="stylesheet" href="assets/css/profile-cropper.css" />
         <link rel="stylesheet" href="assets/css/custom.css" />
-        <link rel="stylesheet" href="assets/css/header.css" />
-        <link rel="stylesheet" href="assets/css/side-nav.css" />
-        <link rel="stylesheet" href="assets/css/breadcrumb.css" />
-        <link rel="stylesheet" href="assets/css/custom-buttons.css" />
         <link rel="stylesheet" href="assets/css/media-query.css" />
-        <link rel="stylesheet" href="assets/css/preset.css" />
-        <link rel="stylesheet" href="assets/css/footer.css" />
         <link rel="stylesheet" href="assets/css/owl.carousel.min.css" />
         <link rel="stylesheet" href="assets/css/owl.theme.default.min.css" />
-        <link rel="stylesheet" href="assets/css/chart.css" />
+        <link rel="stylesheet" href="assets/css/jquery.imagesloader.css" />
+
+        <link rel="stylesheet" href="assets/css/layout/header.css" />
+        <link rel="stylesheet" href="assets/css/layout/side-nav.css" />
+        <link rel="stylesheet" href="assets/css/layout/footer.css" />
+
+        <link rel="stylesheet" href="assets/css/vendor/breadcrumb.css" />
+        <link rel="stylesheet" href="assets/css/vendor/custom-buttons.css" />
+        <link rel="stylesheet" href="assets/css/vendor/preset.css" />
+        <link rel="stylesheet" href="assets/css/vendor/chart.css" />
         <!-- local link -->
     </head>
     <body>
@@ -137,32 +139,64 @@
                         </div>
                     </div>
                     <div class="col-md-8 col-lg-8 col-xl-8 col-xxl-8 col-12 vendor-content">
+                        <button class="btn btn-light sideMenuButton d-lg-none d-xl-none d-xxl-none" onclick="sideBarToggle()"><i class="fas fa-arrow-right"></i></button>
                         <h3 class="my-0 d-flex align-items-center justify-content-between mb35-i">
                             Add New Product <a href="products.blade.html" class="text-decoration-none text-dark"><i class="fas fa-times"></i></a>
                         </h3>
                         <form method="POST" action="" enctype="multipart/form-data">
-                            <div class="row">
-                                <div class="upload__box">
-                                    <div class="upload__btn-box">
-                                        <label class="upload__btn">
-                                            <p>Upload images</p>
-                                            <input type="file" multiple="" data-max_length="20" class="upload__inputfile" />
-                                        </label>
+                            <div class="row mb35" data-type="imagesloader" data-errorformat="Accepted file formats" data-errorsize="Maximum size accepted" data-errorduplicate="File already loaded" data-errormaxfiles="Maximum number of images you can upload" data-errorminfiles="Minimum number of images to upload" data-modifyimagetext="Modify Image">
+                                <!-- Progress bar -->
+                                <div class="col-12 order-1 mt-2">
+                                    <div data-type="progress" class="progress" style="height: 25px; display: none">
+                                        <div data-type="progressBar" class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style="width: 100%">Load in progress...</div>
                                     </div>
-                                    <div class="upload__img-wrap"></div>
                                 </div>
-                                <div class="col-md-4 mb35">
-                                    <div class="avatar-upload">
-                                        <div class="avatar-edit">
-                                            <input type="file" id="imageUpload" name="image" accept=".png, .jpg, .jpeg" class="imageUpload" multiple />
-                                            <input type="hidden" name="base64image" id="base64image" />
+
+                                <!-- Model -->
+                                <div data-type="image-model" class="col-md-3 col-lg-3 col-xl-3 col-xxl-3 col-6" style="display: none">
+                                    <div class="ratio-box text-center" data-type="image-ratio-box">
+                                        <img data-type="noimage" class="btn btn-light ratio-img img-fluid p-5 image border solid rounded" src="assets/svg/plus.svg" style="cursor: pointer" />
+                                        <div data-type="loading" class="img-loading" style="color: #218838; display: none">
+                                            <span class="fa fa-2x fa-spin fa-spinner"></span>
                                         </div>
-                                        <div class="avatar-preview">
-                                            <label for="imageUpload" class="imageUpload d-flex justify-content-center align-items-center">
-                                                <img src="assets/svg/plus.svg" alt="" />
-                                            </label>
+                                        <img data-type="preview" class="btn btn-light ratio-img img-fluid p-0 image border solid rounded" src="" style="display: none; cursor: default" />
+                                        <span class="badge badge-pill badge-success p-2 w-50 main-tag" style="display: none">Main</span>
+                                    </div>
+
+                                    <!-- Buttons -->
+                                    <div data-type="image-buttons" class="row d-grid justify-content-center mt-2">
+                                        <button data-type="add" class="btn btn-sm btn-outline-danger" type="button"><span class="fa fa-camera mr-2"></span>Add</button>
+                                        <button data-type="btn-modify" type="button" class="btn btn-sm btn-outline-success m-0" data-toggle="popover" data-placement="right" style="display: none"><span class="fa fa-pencil-alt mr-2"></span>Modify</button>
+                                    </div>
+                                </div>
+
+                                <!-- Popover operations -->
+                                <div data-type="popover-model" style="display: none">
+                                    <div data-type="popover" class="ml-3 mr-3" style="min-width: 150px">
+                                        <div class="row d-grid justify-content-center">
+                                            <div class="col p-0">
+                                                <button data-operation="main" class="btn btn-block btn-success btn-sm rounded-pill" type="button"><span class="fa fa-angle-double-up mr-2"></span>Main</button>
+                                            </div>
+                                        </div>
+                                        <div class="row mt-2">
+                                            <div class="col-6 p-0 pr-1">
+                                                <button data-operation="left" class="btn btn-block btn-outline-success btn-sm rounded-pill" type="button"><span class="fa fa-angle-left mr-2"></span>Left</button>
+                                            </div>
+                                            <div class="col-6 p-0 pl-1">
+                                                <button data-operation="right" class="btn btn-block btn-outline-success btn-sm rounded-pill" type="button">Right<span class="fa fa-angle-right ml-2"></span></button>
+                                            </div>
+                                        </div>
+                                        <div class="row mt-2">
+                                            <button data-operation="remove" class="btn btn-outline-danger btn-sm btn-block" type="button"><span class="fa fa-times mr-2"></span>Remove</button>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="input-group">
+                                    <!--Hidden file input for images-->
+                                    <input id="files" type="file" name="files[]" data-button="" multiple="" accept="image/jpeg, image/png, image/gif," style="display: none" />
                                 </div>
                             </div>
 
@@ -275,67 +309,48 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js"></script>
-
-<!-- cdn scripts -->
-
+<script src="assets/js/jquery.imagesloader-1.0.1.js"></script>
 <script>
-    jQuery(document).ready(function () {
-        ImgUpload();
-    });
-
-    function ImgUpload() {
-        var imgWrap = "";
-        var imgArray = [];
-
-        $(".upload__inputfile").each(function () {
-            $(this).on("change", function (e) {
-                imgWrap = $(this).closest(".upload__box").find(".upload__img-wrap");
-                var maxLength = $(this).attr("data-max_length");
-
-                var files = e.target.files;
-                var filesArr = Array.prototype.slice.call(files);
-                var iterator = 0;
-                filesArr.forEach(function (f, index) {
-                    if (!f.type.match("image.*")) {
-                        return;
-                    }
-
-                    if (imgArray.length > maxLength) {
-                        return false;
-                    } else {
-                        var len = 0;
-                        for (var i = 0; i < imgArray.length; i++) {
-                            if (imgArray[i] !== undefined) {
-                                len++;
-                            }
-                        }
-                        if (len > maxLength) {
-                            return false;
-                        } else {
-                            imgArray.push(f);
-
-                            var reader = new FileReader();
-                            reader.onload = function (e) {
-                                var html = "<div class='upload__img-box'><div style='background-image: url(" + e.target.result + ")' data-number='" + $(".upload__img-close").length + "' data-file='" + f.name + "' class='img-bg'><div class='upload__img-close'></div></div></div>";
-                                imgWrap.append(html);
-                                iterator++;
-                            };
-                            reader.readAsDataURL(f);
-                        }
-                    }
-                });
-            });
-        });
-
-        $("body").on("click", ".upload__img-close", function (e) {
-            var file = $(this).parent().data("file");
-            for (var i = 0; i < imgArray.length; i++) {
-                if (imgArray[i].name === file) {
-                    imgArray.splice(i, 1);
-                    break;
-                }
-            }
-            $(this).parent().parent().remove();
-        });
+    function sideBarToggle() {
+        var element = document.getElementById("sideMenuBar");
+        element.classList.toggle("toggle-menubar");
     }
+    $(document).ready(function () {
+        $("#closeButton").on("click", function () {
+            $("#sideMenuBar").toggleClass("toggle-menubar");
+            return false;
+        });
+    });
+</script>
+<!-- cdn scripts -->
+<script type="text/javascript">
+    // Ready
+    $(document).ready(function () {
+        //Image loader var to use when you need a function from object
+        var auctionImages = null;
+
+        // Create image loader plugin
+        var imagesloader = $("[data-type=imagesloader]").imagesloader({
+            maxFiles: 4,
+            minSelect: 1,
+            imagesToLoad: auctionImages,
+        });
+
+        //Form
+        $frm = $("#frm");
+
+        // Form submit
+        $frm.submit(function (e) {
+            var $form = $(this);
+
+            var files = imagesloader.data("format.imagesloader").AttachmentArray;
+
+            var il = imagesloader.data("format.imagesloader");
+
+            if (il.CheckValidity()) alert("Upload " + files.length + " files");
+
+            e.preventDefault();
+            e.stopPropagation();
+        });
+    });
 </script>
