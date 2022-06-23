@@ -29,6 +29,7 @@
         <link rel="stylesheet" href="assets/css/vendor/custom-buttons.css" />
         <link rel="stylesheet" href="assets/css/vendor/preset.css" />
         <link rel="stylesheet" href="assets/css/vendor/chart.css" />
+        <link rel="stylesheet" href="assets/css/select2.min.css" />
         <!-- local link -->
     </head>
     <body>
@@ -221,7 +222,11 @@
                             </div>
 
                             <div class="mb35">
-                                <input type="text" name="tags" placeholder="Tags" class="form-control" />
+                                <select name="tags[]" id="" class="form-control tags" aria-placeholder="tags">
+                                    <option value="">Abstract</option>
+                                    <option value="">Vision</option>
+                                    <option value="">Others</option>
+                                </select>
                             </div>
 
                             <div class="mb35">
@@ -312,7 +317,16 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js"></script>
+<script src="assets/js/select2.min.js"></script>
 <script src="assets/js/jquery.imagesloader-1.0.1.js"></script>
+<script>
+    $(function () {
+        $(".tags").select2({
+            tags: true,
+            multiple: true,
+        });
+    });
+</script>
 <script>
     function sideBarToggle() {
         var element = document.getElementById("sideMenuBar");
